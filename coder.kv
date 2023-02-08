@@ -1,0 +1,67 @@
+<MainWidget>:
+    orientation: 'vertical'
+    text_input: i_txt
+    do_coded_text: ed_txt
+    coder_da_ya: da_ya
+    coder_cezar: cezar
+    show_mode: mode
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: (1, .3)
+
+        Label:
+            size_hint: (1, .2)
+            font_size: 24
+            text: "DA YA mode"
+            id: mode
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (1, .2)
+
+            Button:
+                background_color: "orange"
+                font_size: 20
+                text: "DA YA"
+                id: da_ya
+                on_touch_down: root.change_mode(1)
+
+            Button:
+                background_color: "orange"
+                font_size: 20
+                text: "Cezar"
+                id: cezar
+                on_touch_down: root.change_mode(2)
+
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint: (1, .4)
+
+        TextInput:
+            halign:"center"
+            auto_indent: True
+            multiline: True
+            id: i_txt
+            text: "Введите текст"
+            on_text: root.changed_text()
+
+    Label:
+        font_size: 14
+        id: ed_txt
+        halign:"center"
+
+    BoxLayout:
+        size_hint: (1, .4)
+        orientation: "horizontal"
+
+        Button:
+            text: "Clear"
+            background_color: "red"
+            on_release: root.cleaning()
+            opposite_colors: True
+
+        Button:
+            text: "Copy"
+            background_color: "green"
+            on_release: root.copy_text()
